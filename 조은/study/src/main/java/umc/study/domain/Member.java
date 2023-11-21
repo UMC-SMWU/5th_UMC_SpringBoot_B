@@ -1,6 +1,7 @@
 package umc.study.domain;
 
 import lombok.*;
+import umc.study.domain.common.BaseEntity;
 import umc.study.domain.enums.*;
 
 import javax.persistence.*;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
