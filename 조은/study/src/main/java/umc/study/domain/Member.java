@@ -1,8 +1,10 @@
 package umc.study.domain;
 
 import lombok.*;
+import umc.study.domain.enums.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -14,5 +16,26 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String name;
+
+    private String address;
+
+    private String specAddress;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    @Enumerated(EnumType.STRING)
+    private SocialType socialType;
+
+    @Enumerated(EnumType.STRING)
+    private MemberStatus status;
+
+    private LocalDate inactiveDate;
+
+    private String email;
+
+    private Integer point;
 
 }
