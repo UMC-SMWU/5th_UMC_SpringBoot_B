@@ -2,8 +2,10 @@ package umc.study.domain;
 
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
+import umc.study.domain.mapping.*;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Getter
@@ -21,5 +23,8 @@ public class Terms extends BaseEntity {
     private String body;
 
     private Boolean optional;
+
+    @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
+    private List<MemberAgree> memberAgreeList = new ArrayList<>();
 
 }

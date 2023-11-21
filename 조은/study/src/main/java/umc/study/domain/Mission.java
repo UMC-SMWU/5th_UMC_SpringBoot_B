@@ -2,9 +2,11 @@ package umc.study.domain;
 
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
+import umc.study.domain.mapping.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.*;
 
 @Entity
 @Getter
@@ -26,5 +28,8 @@ public class Mission extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
+
+    @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
+    private List<MemberMission> memberMissionList = new ArrayList<>();
 
 }
