@@ -23,4 +23,16 @@ public class Region extends BaseEntity {
 
     @OneToMany(mappedBy = "region", cascade = CascadeType.ALL)
     private List<Store> storeList = new ArrayList<>();
+
+    public void updateId(Long id) {
+        this.id = id;
+    }
+
+    public void updateName(String name) {
+        this.name = name;
+    }
+
+    public void updateStoreList(List<Store> storeList) {
+        this.storeList = storeList;
+    }
 }

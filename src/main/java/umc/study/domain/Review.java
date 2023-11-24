@@ -31,4 +31,28 @@ public class Review extends BaseEntity {
 
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
     private List<ReviewImage> reviewImageList;
+
+    public void updateId(Long id) {
+        this.id = id;
+    }
+
+    public void updateTitle(String title) {
+        this.title = title;
+    }
+
+    public void updateScore(Float score) {
+        this.score = score;
+    }
+
+    public void updateMember(Member member) {
+        this.member = member;
+    }
+
+    public void updateStore(Store store) {
+        this.store = store;
+    }
+
+    public void updateReviewImageList(List<ReviewImage> reviewImageList) {
+        this.reviewImageList = reviewImageList;
+    }
 }

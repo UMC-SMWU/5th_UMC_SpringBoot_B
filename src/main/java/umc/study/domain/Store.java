@@ -30,4 +30,28 @@ public class Store extends BaseEntity {
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Mission> missionList = new ArrayList<>();
+
+    public void updateId(Long id) {
+        this.id = id;
+    }
+
+    public void updateName(String name) {
+        this.name = name;
+    }
+
+    public void updateAddress(String address) {
+        this.address = address;
+    }
+
+    public void updateScore(Float score) {
+        this.score = score;
+    }
+
+    public void updateRegion(Region region) {
+        this.region = region;
+    }
+
+    public void updateMissionList(List<Mission> missionList) {
+        this.missionList = missionList;
+    }
 }
