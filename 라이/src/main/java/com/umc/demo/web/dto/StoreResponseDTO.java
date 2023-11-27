@@ -6,14 +6,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-public class MemberResponseDTO {
+public class StoreResponseDTO {
 
     @Builder
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class JoinResultDTO{
-        Long memberId;
+    public static class CreateReviewResultDTO{
+        Long reviewId;
         LocalDateTime createdAt;
     }
 
@@ -21,8 +21,8 @@ public class MemberResponseDTO {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class CreateMemberMissionResultDTO{
-        Long memberMissionId;
+    public static class CreateMissionResultDTO{
+        Long missionId;
         LocalDateTime createdAt;
     }
 }
