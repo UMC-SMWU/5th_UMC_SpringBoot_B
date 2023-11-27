@@ -8,6 +8,7 @@ import com.umc.demo.service.StoreService.StoreCommandService;
 import com.umc.demo.validation.annotation.ExistMember;
 import com.umc.demo.validation.annotation.ExistStore;
 import com.umc.demo.web.dto.StoreRequestDTO;
+import com.umc.demo.web.dto.StoreResponseDTO.CreateMissionResultDTO;
 import com.umc.demo.web.dto.StoreResponseDTO.CreateReviewResultDTO;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -33,5 +34,12 @@ public class StoreRestController {
                                                            @ExistMember @RequestParam(name = "memberId") Long memberId){
         Review review = storeCommandService.createReview(memberId, storeId, request);
         return ApiResponse.onSuccess(StoreConverter.toCreateReviewResultDTO(review));
+    }
+
+    @PostMapping("/{storeId}/missions")
+    public ApiResponse<CreateMissionResultDTO> createMission(@RequestBody @Valid StoreRequestDTO.MissionDTO request,
+                                                             @ExistStore @PathVariable(name = "storeId") Long storeId) {
+        Mission mission = storeCommandService.createMission(storeId, request);
+        return ApiResponse.onSuccess(StoreConverter.toCreateReviewResultDTO(mission));
     }
 }
