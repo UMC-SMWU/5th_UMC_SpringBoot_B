@@ -1,6 +1,7 @@
 package com.umc.demo.domain;
 
 import com.umc.demo.domain.common.BaseEntity;
+import com.umc.demo.domain.mapping.MemberMission;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
