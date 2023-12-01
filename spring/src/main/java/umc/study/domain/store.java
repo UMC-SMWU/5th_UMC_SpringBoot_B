@@ -30,4 +30,7 @@ public class store extends BaseEntity {
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<review> storeReviewList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+    private List<Mission> storeMissionList = new ArrayList<>();
 }
