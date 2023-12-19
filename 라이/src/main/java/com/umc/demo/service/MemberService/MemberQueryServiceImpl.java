@@ -3,6 +3,7 @@ package com.umc.demo.service.MemberService;
 import com.umc.demo.domain.Member;
 import com.umc.demo.domain.Review;
 import com.umc.demo.domain.Store;
+import com.umc.demo.domain.enums.MemberStatus;
 import com.umc.demo.domain.mapping.MemberMission;
 import com.umc.demo.repository.MemberMissionRepository;
 import com.umc.demo.repository.MemberRepository;
@@ -36,7 +37,13 @@ public class MemberQueryServiceImpl implements MemberQueryService{
     @Override
     public Page<Review> getReviewList(Long memberId, Integer page) {
         Member member = memberRepository.findById(memberId).get();
-        Page<Review> StorePage = reviewRepository.findAllByMember(member, PageRequest.of(page, 10));
-        return StorePage;
+        return reviewRepository.findAllByMember(member, PageRequest.of(page, 10));
+    }
+
+    @Override
+    public Page<MemberMission> getMissionList(Long memberId, String status, Integer page) {
+        Member member = memberRepository.findById(memberId).get();
+        return memberMissionRepository.findAllByMemberAndStatus(member, MemberStatus.valueOf(status),
+                PageRequest.of(page, 10));
     }
 }
