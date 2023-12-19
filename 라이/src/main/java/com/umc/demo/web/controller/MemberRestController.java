@@ -67,7 +67,7 @@ public class MemberRestController {
     })
     public ApiResponse<MemberResponseDTO.ReviewPreViewListDTO> getReviewList(@CheckPage @RequestParam(name = "page") Integer page,
                                                                              @ExistMember @RequestParam(name = "memberId") Long memberId){
-        return ApiResponse.onSuccess(MemberConverter.toReviewPreViewListDTO(memberQueryService.getReviewList(memberId, page)));
+        return ApiResponse.onSuccess(MemberConverter.toReviewPreViewListDTO(memberQueryService.getReviewList(memberId, page - 1)));
     }
 
     @GetMapping("/missions")
@@ -86,6 +86,6 @@ public class MemberRestController {
     public ApiResponse<MemberResponseDTO.MissionListDTO> getMissionList(@CheckPage @RequestParam(name = "page") Integer page,
                                                                              @CheckMissionStatus @RequestParam(name = "status") String status,
                                                                              @ExistMember @RequestParam(name = "memberId") Long memberId){
-        return ApiResponse.onSuccess(MemberConverter.toMissionListDTO(memberQueryService.getMissionList(memberId, status, page)));
+        return ApiResponse.onSuccess(MemberConverter.toMissionListDTO(memberQueryService.getMissionList(memberId, status, page - 1)));
     }
 }
